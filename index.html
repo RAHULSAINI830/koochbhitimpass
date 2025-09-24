@@ -43,18 +43,54 @@
         </div>
     </div>
     <script>
+        // --- NEW FUNNIER RAJASTHANI QUESTIONS ---
         const quizData = [
-            { question: "You're granted one of these 'everyday' superpowers. Which one do you choose?", answers: [ { text: "Teleporting, but only to places with loud music.", pointsTo: "pani-puri" }, { text: "Making any seat you're in perfectly comfortable.", pointsTo: "vada-pav" }, { text: "Perfectly pairing a snack with any movie.", pointsTo: "samosa" }, { text: "Knowing the most interesting gossip about anyone.", pointsTo: "jalebi" } ] },
-            { question: "You have a free hour to get lost on YouTube. What's your rabbit hole?", answers: [ { text: "Extreme sports and wild travel vlogs.", pointsTo: "pani-puri" }, { text: "Comforting cooking tutorials or stand-up comedy.", pointsTo: "vada-pav" }, { text: "A mix of everything: music, tech, and funny animals.", pointsTo: "samosa" }, { text: "Deep-dive documentary essays on complex mysteries.", pointsTo: "jalebi" } ] },
-            { question: "What's the title of your life's current background music playlist?", answers: [ { text: "'Unplanned Adventures & Bass Drops'", pointsTo: "pani-puri" }, { text: "'Lo-Fi Beats to Relax/Study To'", pointsTo: "vada-pav" }, { text: "'Top Hits Of Every Decade'", pointsTo: "samosa" }, { text: "'Melodies for Deep Thoughts at 2 AM'", pointsTo: "jalebi" } ] },
-            { question: "You're planning a get-together. What's the main attraction?", answers: [ { text: "A massive dance floor with a DJ!", pointsTo: "pani-puri" }, { text: "A super comfy corner for deep chats.", pointsTo: "vada-pav" }, { text: "A huge snack table with something for everyone.", pointsTo: "samosa" }, { text: "An elaborate murder mystery game.", pointsTo: "jalebi" } ] }
+            {
+                question: "Jaipur re traffic mein fans gaya, ab kai karola?",
+                answers: [
+                    { text: "Horn bajaa-bajaa ne market mathai le liyo!", pointsTo: "pani-puri" },
+                    { text: "Gaadi side mein laga ne, chai ri thadi par baith gayo.", pointsTo: "vada-pav" },
+                    { text: "Google Maps par nayo rasto ghal diyo, koi jugad mil'j jasi.", pointsTo: "samosa" },
+                    { text: "Radio par purana gaana sun ne, yaada'n mein kho gayo.", pointsTo: "jalebi" }
+                ]
+            },
+            {
+                question: "Thare saamne ek nach'to uunth aayo, kai hai tharo reaction?",
+                answers: [
+                    { text: "Bina soche saage naachno chalu!", pointsTo: "pani-puri" },
+                    { text: "Side mein su chup-chaap nikal jaasyu.", pointsTo: "vada-pav" },
+                    { text: "Video bana ne Instagram par story ghal diyo.", pointsTo: "samosa" },
+                    { text: "Sochu'n la, 'Inre mann mein kai chal riyo hai?'", pointsTo: "jalebi" }
+                ]
+            },
+            {
+                question: "Kila mein koi kahyo 'Atthe bhoot hai!', tharo kai jawab hove?",
+                answers: [
+                    { text: "'Chalo, bhoot su'j mil ne aava! Selfie leni hai.'", pointsTo: "pani-puri" },
+                    { text: "'Ram Ram! Maaf karjo, aapno rasto alag hai.'", pointsTo: "vada-pav" },
+                    { text: "'Hove toh hove, aapne kai leno-deno?'", pointsTo: "samosa" },
+                    { text: "'Kyu hai? Kai kahani hai inre paache?'", pointsTo: "jalebi" }
+                ]
+            },
+            {
+                question: "Dal Baati Churma mein su, thari favourite cheez kai hai?",
+                answers: [
+                    { text: "Masaledar Dal, jitro teekho utro bhalo!", pointsTo: "pani-puri" },
+                    { text: "Ghee mein dubodi Baati. Simple and best.", pointsTo: "vada-pav" },
+                    { text: "Puri plate! Saage hove toh'j majo hai.", pointsTo: "samosa" },
+                    { text: "Meetho Churma, sab su alag aur khaas.", pointsTo: "jalebi" }
+                ]
+            }
         ];
+        // --- END OF NEW QUESTIONS ---
+
         const resultsData = {
             "pani-puri": { emoji: "💥", title: "You're Pani Puri!", description: "You're a burst of energy and excitement! You're the life of the party and always full of surprises. People love that you're never boring." },
             "vada-pav": { emoji: "❤️", title: "You're Vada Pav!", description: "You are a classic, reliable, and comforting presence. You're the friend everyone turns to for a no-fuss, good time. You're a true original!" },
             "samosa": { emoji: "👌", title: "You're a Samosa!", description: "You're versatile, universally loved, and fit in anywhere! Whether it's a casual chat or a big celebration, you're always the perfect addition." },
             "jalebi": { emoji: "😉", title: "You're a Jalebi!", description: "You are sweet, complex, and have a wonderfully twisted sense of humor. People are drawn to your unique and irresistible personality." }
         };
+
         const startScreen = document.getElementById('start-screen');
         const quizScreen = document.getElementById('quiz-screen');
         const resultScreen = document.getElementById('result-screen');
