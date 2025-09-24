@@ -6,153 +6,35 @@
     <title>A Quiz for Sneha</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Fredoka+One&display=swap');
-
-        :root {
-            --primary: #ff7e5f;
-            --secondary: #feb47b;
-            --dark: #333;
-            --light: #fff;
-            --shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            -webkit-tap-highlight-color: transparent;
-            user-select: none;
-        }
-
-        .quiz-container {
-            background: var(--light);
-            width: 90%;
-            max-width: 500px;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            overflow: hidden;
-        }
-        
-        #start-screen h1, #result-screen h1 {
-            font-family: 'Fredoka One', cursive;
-            color: var(--dark);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        #start-screen p, #result-screen p {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .btn {
-            background-image: linear-gradient(to right, #ff7e5f 0%, #feb47b 51%, #ff7e5f 100%);
-            margin: 10px;
-            padding: 15px 30px;
-            text-align: center;
-            text-transform: uppercase;
-            transition: 0.5s;
-            background-size: 200% auto;
-            color: white;            
-            box-shadow: 0 0 20px #eee;
-            border-radius: 10px;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            background-position: right center;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        #quiz-screen {
-            display: none;
-        }
-
-        #progress-bar {
-            width: 100%;
-            background-color: #eee;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        #progress-bar-fill {
-            height: 10px;
-            background-color: var(--primary);
-            width: 0%;
-            border-radius: 10px;
-            transition: width 0.3s ease-in-out;
-        }
-
-        #question {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--dark);
-            margin-bottom: 20px;
-        }
-
-        .answer-btn {
-            display: block;
-            width: 100%;
-            background: #f7f7f7;
-            border: 2px solid #ddd;
-            color: var(--dark);
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-        }
-
-        .answer-btn:hover {
-            background: #e9e9e9;
-            border-color: var(--primary);
-        }
-
-        #result-screen {
-            display: none;
-        }
-        
-        #result-emoji {
-            font-size: 5rem;
-            animation: bounce 1s ease;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-30px);}
-            60% {transform: translateY(-15px);}
-        }
+        :root { --primary: #ff7e5f; --secondary: #feb47b; --dark: #333; --light: #fff; --shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; justify-content: center; align-items: center; -webkit-tap-highlight-color: transparent; user-select: none; }
+        .quiz-container { background: var(--light); width: 90%; max-width: 500px; border-radius: 20px; padding: 30px; box-shadow: var(--shadow); text-align: center; overflow: hidden; }
+        #start-screen h1, #result-screen h1 { font-family: 'Fredoka One', cursive; color: var(--dark); font-size: 2.5rem; margin-bottom: 10px; }
+        #start-screen p, #result-screen p { color: #666; margin-bottom: 30px; line-height: 1.6; }
+        .btn { background-image: linear-gradient(to right, #ff7e5f 0%, #feb47b 51%, #ff7e5f 100%); margin: 10px; padding: 15px 30px; text-align: center; text-transform: uppercase; transition: 0.5s; background-size: 200% auto; color: white; box-shadow: 0 0 20px #eee; border-radius: 10px; display: inline-block; border: none; cursor: pointer; font-size: 1rem; font-weight: bold; }
+        .btn:hover { background-position: right center; color: #fff; text-decoration: none; }
+        #quiz-screen, #result-screen { display: none; }
+        #progress-bar { width: 100%; background-color: #eee; border-radius: 10px; margin-bottom: 20px; }
+        #progress-bar-fill { height: 10px; background-color: var(--primary); width: 0%; border-radius: 10px; transition: width 0.3s ease-in-out; }
+        #question { font-size: 1.5rem; font-weight: bold; color: var(--dark); margin-bottom: 20px; }
+        .answer-btn { display: block; width: 100%; background: #f7f7f7; border: 2px solid #ddd; color: var(--dark); padding: 15px; margin: 10px 0; border-radius: 10px; cursor: pointer; font-size: 1rem; transition: all 0.2s ease; }
+        .answer-btn:hover { background: #e9e9e9; border-color: var(--primary); }
+        #result-emoji { font-size: 5rem; animation: bounce 1s ease; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-30px);} 60% {transform: translateY(-15px);} }
     </style>
 </head>
 <body>
-
     <div class="quiz-container">
         <div id="start-screen">
             <h1>The Vibe Quiz!</h1>
             <p>Hey Sneha! I made this little quiz just for you. Answer a few questions to find out your true inner vibe!</p>
             <button id="start-btn" class="btn">Let's Find Out!</button>
         </div>
-
         <div id="quiz-screen">
             <div id="progress-bar"><div id="progress-bar-fill"></div></div>
             <div id="question"></div>
             <div id="answers-container"></div>
         </div>
-
         <div id="result-screen">
             <div id="result-emoji"></div>
             <h1></h1>
@@ -160,14 +42,47 @@
             <button id="restart-btn" class="btn">Try Again?</button>
         </div>
     </div>
-
     <script>
+        // --- NEW FUNKY QUESTIONS ---
         const quizData = [
-            { question: "It's Saturday night. What's the plan?", answers: [ { text: "Big party with all my friends!", pointsTo: "pani-puri" }, { text: "Chilling at home with a good movie.", pointsTo: "vada-pav" }, { text: "A small get-together with close friends.", pointsTo: "samosa" }, { text: "Something sweet and unexpected!", pointsTo: "jalebi" } ] },
-            { question: "Choose a movie genre:", answers: [ { text: "Action & Thriller - give me the drama!", pointsTo: "pani-puri" }, { text: "Feel-good Comedy.", pointsTo: "vada-pav" }, { text: "A bit of everything, maybe a classic.", pointsTo: "samosa" }, { text: "A complicated, twisted romance.", pointsTo: "jalebi" } ] },
-            { question: "How do you make decisions?", answers: [ { text: "Instantly! I trust my gut.", pointsTo: "pani-puri" }, { text: "Simple and logical. No overthinking.", pointsTo: "vada-pav" }, { text: "I weigh all the options carefully.", pointsTo: "samosa" }, { text: "My mood decides everything!", pointsTo: "jalebi" } ] },
-            { question: "Your friend is sad. What do you do?", answers: [ { text: "Take them out to do something exciting!", pointsTo: "pani-puri" }, { text: "Listen to them and offer comforting advice.", pointsTo: "vada-pav" }, { text: "Bring them their favorite snack and just hang out.", pointsTo: "samosa" }, { text: "Cheer them up with sweet words and compliments.", pointsTo: "jalebi" } ] }
+            {
+                question: "You're granted one of these 'everyday' superpowers. Which one do you choose?",
+                answers: [
+                    { text: "Teleporting, but only to places with loud music.", pointsTo: "pani-puri" },
+                    { text: "Making any seat you're in perfectly comfortable.", pointsTo: "vada-pav" },
+                    { text: "Perfectly pairing a snack with any movie.", pointsTo: "samosa" },
+                    { text: "Knowing the most interesting gossip about anyone.", pointsTo: "jalebi" }
+                ]
+            },
+            {
+                question: "You have a free hour to get lost on YouTube. What's your rabbit hole?",
+                answers: [
+                    { text: "Extreme sports and wild travel vlogs.", pointsTo: "pani-puri" },
+                    { text: "Comforting cooking tutorials or stand-up comedy.", pointsTo: "vada-pav" },
+                    { text: "A mix of everything: music, tech, and funny animals.", pointsTo: "samosa" },
+                    { text: "Deep-dive documentary essays on complex mysteries.", pointsTo: "jalebi" }
+                ]
+            },
+            {
+                question: "What's the title of your life's current background music playlist?",
+                answers: [
+                    { text: "'Unplanned Adventures & Bass Drops'", pointsTo: "pani-puri" },
+                    { text: "'Lo-Fi Beats to Relax/Study To'", pointsTo: "vada-pav" },
+                    { text: "'Top Hits Of Every Decade'", pointsTo: "samosa" },
+                    { text: "'Melodies for Deep Thoughts at 2 AM'", pointsTo: "jalebi" }
+                ]
+            },
+            {
+                question: "You're planning a get-together. What's the main attraction?",
+                answers: [
+                    { text: "A massive dance floor with a DJ!", pointsTo: "pani-puri" },
+                    { text: "A super comfy corner for deep chats.", pointsTo: "vada-pav" },
+                    { text: "A huge snack table with something for everyone.", pointsTo: "samosa" },
+                    { text: "An elaborate murder mystery game.", pointsTo: "jalebi" }
+                ]
+            }
         ];
+        // --- END OF NEW QUESTIONS ---
 
         const resultsData = {
             "pani-puri": { emoji: "💥", title: "You're Pani Puri!", description: "You're a burst of energy and excitement! You're the life of the party and always full of surprises. People love that you're never boring." },
@@ -184,9 +99,9 @@
         const questionEl = document.getElementById('question');
         const answersContainer = document.getElementById('answers-container');
         const progressBarFill = document.getElementById('progress-bar-fill');
-
         let currentQuestionIndex;
         let scores;
+        let userAnswers;
 
         function startQuiz() {
             startScreen.style.display = 'none';
@@ -194,9 +109,9 @@
             quizScreen.style.display = 'block';
             currentQuestionIndex = 0;
             scores = { "pani-puri": 0, "vada-pav": 0, "samosa": 0, "jalebi": 0 };
+            userAnswers = [];
             showQuestion();
         }
-
         function showQuestion() {
             const currentQuestion = quizData[currentQuestionIndex];
             questionEl.innerText = currentQuestion.question;
@@ -205,15 +120,15 @@
                 const button = document.createElement('button');
                 button.innerText = answer.text;
                 button.classList.add('answer-btn');
-                button.onclick = () => selectAnswer(answer.pointsTo);
+                button.onclick = () => selectAnswer(answer.pointsTo, answer.text);
                 answersContainer.appendChild(button);
             });
             const progress = ((currentQuestionIndex) / quizData.length) * 100;
             progressBarFill.style.width = `${progress}%`;
         }
-
-        function selectAnswer(pointsTo) {
+        function selectAnswer(pointsTo, answerText) {
             scores[pointsTo]++;
+            userAnswers.push(answerText);
             currentQuestionIndex++;
             if (currentQuestionIndex < quizData.length) {
                 showQuestion();
@@ -222,46 +137,34 @@
                 setTimeout(showResults, 500);
             }
         }
-        
         function saveResultToSheet(resultKey) {
             const scriptURL = 'https://script.google.com/macros/s/AKfycbwrCgooYp_yJ6OdQEKKxR4iSbPTTEtEzBjFrMaKHYBY2sydRIPPTlNOZIzsf9LD-RrR/exec';
             const data = {
                 name: 'Sneha',
-                result: resultsData[resultKey].title
+                result: resultsData[resultKey].title,
+                answer1: userAnswers[0] || '',
+                answer2: userAnswers[1] || '',
+                answer3: userAnswers[2] || '',
+                answer4: userAnswers[3] || ''
             };
-
-            fetch(scriptURL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            })
+            fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
             .then(response => console.log('Success!'))
             .catch(error => console.error('Error!', error.message));
         }
-
         function showResults() {
             quizScreen.style.display = 'none';
             resultScreen.style.display = 'block';
             let maxScore = -1;
             let resultKey = '';
             for (const key in scores) {
-                if (scores[key] > maxScore) {
-                    maxScore = scores[key];
-                    resultKey = key;
-                }
+                if (scores[key] > maxScore) { maxScore = scores[key]; resultKey = key; }
             }
             const result = resultsData[resultKey];
             resultScreen.querySelector('#result-emoji').innerText = result.emoji;
             resultScreen.querySelector('h1').innerText = `Sneha, ${result.title}`;
             resultScreen.querySelector('p').innerText = result.description;
-            
-            // This line sends the data to your Google Sheet
             saveResultToSheet(resultKey);
         }
-
         startBtn.addEventListener('click', startQuiz);
         restartBtn.addEventListener('click', startQuiz);
     </script>
