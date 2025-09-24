@@ -6,12 +6,12 @@
     <title>A Quiz for Sneha</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Fredoka+One&display=swap');
-        :root { --primary: #ff7e5f; --secondary: #feb47b; --dark: #333; --light: #fff; --shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        :root { --primary: #e67e22; --secondary: #f39c12; --dark: #333; --light: #fff; --shadow: 0 4px 15px rgba(0,0,0,0.2); }
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; justify-content: center; align-items: center; -webkit-tap-highlight-color: transparent; user-select: none; }
         .quiz-container { background: var(--light); width: 90%; max-width: 500px; border-radius: 20px; padding: 30px; box-shadow: var(--shadow); text-align: center; overflow: hidden; }
         #start-screen h1, #result-screen h1 { font-family: 'Fredoka One', cursive; color: var(--dark); font-size: 2.5rem; margin-bottom: 10px; }
         #start-screen p, #result-screen p { color: #666; margin-bottom: 30px; line-height: 1.6; }
-        .btn { background-image: linear-gradient(to right, #ff7e5f 0%, #feb47b 51%, #ff7e5f 100%); margin: 10px; padding: 15px 30px; text-align: center; text-transform: uppercase; transition: 0.5s; background-size: 200% auto; color: white; box-shadow: 0 0 20px #eee; border-radius: 10px; display: inline-block; border: none; cursor: pointer; font-size: 1rem; font-weight: bold; }
+        .btn { background-image: linear-gradient(to right, #e67e22 0%, #f39c12 51%, #e67e22 100%); margin: 10px; padding: 15px 30px; text-align: center; text-transform: uppercase; transition: 0.5s; background-size: 200% auto; color: white; box-shadow: 0 0 20px #eee; border-radius: 10px; display: inline-block; border: none; cursor: pointer; font-size: 1rem; font-weight: bold; }
         .btn:hover { background-position: right center; color: #fff; text-decoration: none; }
         #quiz-screen, #result-screen { display: none; }
         #progress-bar { width: 100%; background-color: #eee; border-radius: 10px; margin-bottom: 20px; }
@@ -43,53 +43,21 @@
         </div>
     </div>
     <script>
-        // --- NEW FUNNIER RAJASTHANI QUESTIONS ---
         const quizData = [
-            {
-                question: "Jaipur re traffic mein fans gaya, ab kai karola?",
-                answers: [
-                    { text: "Horn bajaa-bajaa ne market mathai le liyo!", pointsTo: "pani-puri" },
-                    { text: "Gaadi side mein laga ne, chai ri thadi par baith gayo.", pointsTo: "vada-pav" },
-                    { text: "Google Maps par nayo rasto ghal diyo, koi jugad mil'j jasi.", pointsTo: "samosa" },
-                    { text: "Radio par purana gaana sun ne, yaada'n mein kho gayo.", pointsTo: "jalebi" }
-                ]
-            },
-            {
-                question: "Thare saamne ek nach'to uunth aayo, kai hai tharo reaction?",
-                answers: [
-                    { text: "Bina soche saage naachno chalu!", pointsTo: "pani-puri" },
-                    { text: "Side mein su chup-chaap nikal jaasyu.", pointsTo: "vada-pav" },
-                    { text: "Video bana ne Instagram par story ghal diyo.", pointsTo: "samosa" },
-                    { text: "Sochu'n la, 'Inre mann mein kai chal riyo hai?'", pointsTo: "jalebi" }
-                ]
-            },
-            {
-                question: "Kila mein koi kahyo 'Atthe bhoot hai!', tharo kai jawab hove?",
-                answers: [
-                    { text: "'Chalo, bhoot su'j mil ne aava! Selfie leni hai.'", pointsTo: "pani-puri" },
-                    { text: "'Ram Ram! Maaf karjo, aapno rasto alag hai.'", pointsTo: "vada-pav" },
-                    { text: "'Hove toh hove, aapne kai leno-deno?'", pointsTo: "samosa" },
-                    { text: "'Kyu hai? Kai kahani hai inre paache?'", pointsTo: "jalebi" }
-                ]
-            },
-            {
-                question: "Dal Baati Churma mein su, thari favourite cheez kai hai?",
-                answers: [
-                    { text: "Masaledar Dal, jitro teekho utro bhalo!", pointsTo: "pani-puri" },
-                    { text: "Ghee mein dubodi Baati. Simple and best.", pointsTo: "vada-pav" },
-                    { text: "Puri plate! Saage hove toh'j majo hai.", pointsTo: "samosa" },
-                    { text: "Meetho Churma, sab su alag aur khaas.", pointsTo: "jalebi" }
-                ]
-            }
+            { question: "Jaipur re traffic mein fans gaya, ab kai karola?", answers: [ { text: "Horn bajaa-bajaa ne market mathai le liyo!", pointsTo: "mirchi-bada" }, { text: "Gaadi side mein laga ne, chai ri thadi par baith gayo.", pointsTo: "dal-baati" }, { text: "Google Maps par nayo rasto ghal diyo, koi jugad mil'j jasi.", pointsTo: "kachori" }, { text: "Radio par purana gaana sun ne, yaada'n mein kho gayo.", pointsTo: "ghevar" } ] },
+            { question: "Thare saamne ek nach'to uunth aayo, kai hai tharo reaction?", answers: [ { text: "Bina soche saage naachno chalu!", pointsTo: "mirchi-bada" }, { text: "Side mein su chup-chaap nikal jaasyu.", pointsTo: "dal-baati" }, { text: "Video bana ne Instagram par story ghal diyo.", pointsTo: "kachori" }, { text: "Sochu'n la, 'Inre mann mein kai chal riyo hai?'", pointsTo: "ghevar" } ] },
+            { question: "Kila mein koi kahyo 'Atthe bhoot hai!', tharo kai jawab hove?", answers: [ { text: "'Chalo, bhoot su'j mil ne aava! Selfie leni hai.'", pointsTo: "mirchi-bada" }, { text: "'Ram Ram! Maaf karjo, aapno rasto alag hai.'", pointsTo: "dal-baati" }, { text: "'Hove toh hove, aapne kai leno-deno?'", pointsTo: "kachori" }, { text: "'Kyu hai? Kai kahani hai inre paache?'", pointsTo: "ghevar" } ] },
+            { question: "Dal Baati Churma mein su, thari favourite cheez kai hai?", answers: [ { text: "Masaledar Dal, jitro teekho utro bhalo!", pointsTo: "mirchi-bada" }, { text: "Ghee mein dubodi Baati. Simple and best.", pointsTo: "dal-baati" }, { text: "Puri plate! Saage hove toh'j majo hai.", pointsTo: "kachori" }, { text: "Meetho Churma, sab su alag aur khaas.", pointsTo: "ghevar" } ] }
         ];
-        // --- END OF NEW QUESTIONS ---
 
+        // --- NEW RAJASTHANI RESULTS ---
         const resultsData = {
-            "pani-puri": { emoji: "💥", title: "You're Pani Puri!", description: "You're a burst of energy and excitement! You're the life of the party and always full of surprises. People love that you're never boring." },
-            "vada-pav": { emoji: "❤️", title: "You're Vada Pav!", description: "You are a classic, reliable, and comforting presence. You're the friend everyone turns to for a no-fuss, good time. You're a true original!" },
-            "samosa": { emoji: "👌", title: "You're a Samosa!", description: "You're versatile, universally loved, and fit in anywhere! Whether it's a casual chat or a big celebration, you're always the perfect addition." },
-            "jalebi": { emoji: "😉", title: "You're a Jalebi!", description: "You are sweet, complex, and have a wonderfully twisted sense of humor. People are drawn to your unique and irresistible personality." }
+            "mirchi-bada": { emoji: "🌶️", title: "You're a Mirchi Bada!", description: "You are spicy, bold, and always full of life! You're not afraid to be the center of attention and you bring a kick of excitement wherever you go." },
+            "dal-baati": { emoji: "❤️", title: "You're Dal Baati Churma!", description: "You are the ultimate comfort classic. You're reliable, warm-hearted, and everyone feels at home with you. A true Rajasthani original!" },
+            "kachori": { emoji: "👌", title: "You're a Pyaaz ki Kachori!", description: "A crispy, beloved classic that fits in anywhere. You're the go-to friend for any occasion, universally loved, and always a great choice." },
+            "ghevar": { emoji: "✨", title: "You're Ghevar!", description: "You are sweet, intricate, and a little bit royal. You have a complex personality with many layers, making you a truly special and unforgettable treat." }
         };
+        // --- END OF NEW RESULTS ---
 
         const startScreen = document.getElementById('start-screen');
         const quizScreen = document.getElementById('quiz-screen');
@@ -108,7 +76,7 @@
             resultScreen.style.display = 'none';
             quizScreen.style.display = 'block';
             currentQuestionIndex = 0;
-            scores = { "pani-puri": 0, "vada-pav": 0, "samosa": 0, "jalebi": 0 };
+            scores = { "mirchi-bada": 0, "dal-baati": 0, "kachori": 0, "ghevar": 0 };
             userAnswers = [];
             showQuestion();
         }
